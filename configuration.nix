@@ -13,8 +13,6 @@
     	# Include apps that require configuration
 	    ./apps/default.nix
 
-        # Add "configurador fnmt" for Spain digital certificates
-        ./custompkgs/configurador-fnmt/default.nix
 
         # Set up the desktop environment
         ./desktopEnv/DE.nix
@@ -150,6 +148,8 @@
 
     environment = {
         systemPackages = with pkgs; [
+            (callPackage ./custompkgs/configurador-fnmt/default.nix {})
+
             unrar
             anydesk
             usbutils
