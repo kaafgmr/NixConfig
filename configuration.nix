@@ -148,7 +148,9 @@
 
     environment = {
         systemPackages = with pkgs; [
-            (callPackage ./custompkgs/configurador-fnmt/default.nix {})
+            (callPackage ./custompkgs/configurador-fnmt/default.nix {
+                inherit (pkgs) fetchurl stdenv lib;
+            })
 
             unrar
             anydesk

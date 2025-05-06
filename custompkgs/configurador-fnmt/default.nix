@@ -4,10 +4,11 @@ let
 in
 stdenv.mkDerivation {
     pname = "configurador-fnmt";
+    inherit version;
 
     src = fetchurl {
         url = "https://descargas.cert.fnmt.es/Linux/configuradorfnmt-${version}.x86_64.rpm";
-        sha256 = lib.fakeSha256;
+        sha256 = "sha256-osVk3cH16HscR6/BlqfvHWtIROWfyLFc2CglDcnUPwM=";
     };
 
     nativeBuildInputs = [ pkgs.rpmextract ];
