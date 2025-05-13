@@ -57,6 +57,7 @@
                     lua_ls.enable = true;
                     clangd.enable = true;
                     csharp_ls.enable = true;
+                    cssls.enable = true;
                 };
 
                 keymaps = {
