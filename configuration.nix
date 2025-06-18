@@ -119,7 +119,6 @@
             youtube-music
             discord
             gimp
-            unstable.godot_4-mono
             fastfetch
             unzip
             popsicle
