@@ -1,4 +1,4 @@
-{  pkgs, unstable, config, ... }:
+{  pkgs, config, lib, ... }:
 {
     imports = [ 
         # Include the results of the hardware scan.
@@ -138,7 +138,7 @@
         firefox.enable = true;
     };
 
-    fonts.packages = with pkgs; [ nerdfonts ];
+    fonts.packages = [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
     nixpkgs.config = {
         allowUnfree = true;

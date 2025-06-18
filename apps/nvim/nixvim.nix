@@ -2,6 +2,8 @@
 {
     imports = [
         nixvim.nixosModules.nixvim
+        ./remap.nix
+        ./harpoonRemap.nix
     ];
 
     programs.nixvim = {
@@ -11,8 +13,6 @@
         vimAlias = true; 
 
         globals = { mapleader = " "; };
-
-        keymaps = import ./remap.nix;
 
         opts = import ./set.nix;
 
@@ -104,12 +104,6 @@
 
             harpoon = {
                 enable = true;
-                keymaps = {
-                    addFile = "<leader>a";
-                    navNext = "<C-d>";
-                    navPrev = "<C-a>";
-                    toggleQuickMenu = "<C-u>";
-                };
             };
 
             lualine = {
