@@ -41,7 +41,7 @@
             nixd
             clang-tools
             lua-language-server
-            dotnet-sdk
+            dotnet-sdk_9
         ];
 
         plugins = {
@@ -51,6 +51,7 @@
 
             lsp = {
                 enable = true;
+                inlayHints = true;
 
                 servers = {
                     nixd.enable = true;

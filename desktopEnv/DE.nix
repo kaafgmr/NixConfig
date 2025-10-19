@@ -9,6 +9,15 @@
         # Enable the KDE Plasma Desktop Environment.
         displayManager.sddm.enable = true;
         desktopManager.plasma6.enable = true;
+
+    };
+
+    #Make default apps work with hyprland
+    xdg.portal = {
+        enable = true;
+        extraPortals = [
+            pkgs.xdg-desktop-portal-hyprland
+        ];
     };
 
     environment = {
@@ -18,6 +27,8 @@
             hyprpaper
             pavucontrol
             qt6.qttools
+            hyprshot
+            mimeo
         ];
 
         sessionVariables = {

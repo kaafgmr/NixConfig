@@ -52,7 +52,7 @@
         {
             mode = [
                 "n"
-                    "v"
+                "v"
             ];
             key = "<leader>y";
             action = ''"+y<CR>'';
@@ -60,7 +60,7 @@
         {
             mode = "n";
             key = "<leader>Y";
-            action = ''\"+Y<CR>'';
+            action = ''"+Y<CR>'';
         }
         {
             mode = [
@@ -68,12 +68,12 @@
                     "v"
             ];
             key = "<leader>p";
-            action = ''\"+p<CR>'';
+            action = ''"+p<CR>'';
         }
         {
             mode = "n";
             key = "<leader>P";
-            action = ''\"+P<CR>'';
+            action = ''"+P<CR>'';
         }
 
         # quick fix navigation
