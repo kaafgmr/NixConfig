@@ -101,15 +101,15 @@
             modesetting.enable = true;
             open = true;
             nvidiaSettings = true;
-            package = config.boot.kernelPackages.nvidiaPackages.production;
-            /*package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-                version = "580.76.05";
-                sha256_64bit = "sha256-IZvmNrYJMbAhsujB4O/4hzY8cx+KlAyqh7zAVNBdl/0=";
-                sha256_aarch64 = "sha256-IZvmNrYJMbAhsujB4O/4hzY8cx+KlAyqh7zAVNBdl/0=";
-                openSha256 = "sha256-xEPJ9nskN1kISnSbfBigVaO6Mw03wyHebqQOQmUg/eQ=";
-                settingsSha256 = "sha256-ll7HD7dVPHKUyp5+zvLeNqAb6hCpxfwuSyi+SAXapoQ=";
+            #package = config.boot.kernelPackages.nvidiaPackages.production;
+            package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+                version = "580.95.05";
+                sha256_64bit = "sha256-hJ7w746EK5gGss3p8RwTA9VPGpp2lGfk5dlhsv4Rgqc=";
+                sha256_aarch64 = "sha256-RFwDGQOi9jVngVONCOB5m/IYKZIeGEle7h0+0yGnBEI="; 
+                openSha256 = "sha256-RFwDGQOi9jVngVONCOB5m/IYKZIeGEle7h0+0yGnBEI=" ; 
+                settingsSha256 = "sha256-F2wmUEaRrpR1Vz0TQSwVK4Fv13f3J9NJLtBe4UP2f14="; 
                 persistencedSha256 = lib.fakeSha256;
-            };*/
+            };
         };
 
         openrazer.enable = true;
@@ -128,7 +128,6 @@
             discord
             ripgrep
             anki-bin
-            orca-slicer
             gimp
             fastfetch
             unzip
@@ -139,7 +138,6 @@
             kdePackages.skanpage
             kdePackages.okular
             signal-desktop
-            strawberry-qt6
             obsidian
             blender
             qmk
