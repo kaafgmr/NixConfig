@@ -23,7 +23,7 @@
     environment = {
         systemPackages = with pkgs; [
             kitty
-            wofi
+            rofi
             hyprpaper
             pavucontrol
             qt6.qttools

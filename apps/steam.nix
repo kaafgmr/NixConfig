@@ -14,7 +14,7 @@
             package = pkgs.steam.override {
                 extraPkgs = pkgs: [
                     pkgs.bumblebee
-                    pkgs.glxinfo
+                    pkgs.mesa-demos
                 ];
             };
         };

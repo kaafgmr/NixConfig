@@ -1,11 +1,11 @@
-{ /*pkgs, */unstable,  ... }:
+{ pkgs, ... }:
 {
     /*the docs says to use steam-run to run exported projects (I'm not adding steam to this config
      since I have steam on my pc already and I don't want to add steam to the godot installation
      script LOL) */
     users.users.kaaf = {
 
-        packages = with unstable; [
+        packages = with pkgs; [
             godot_4-mono
         ];
     };
