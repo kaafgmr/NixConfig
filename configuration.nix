@@ -1,4 +1,4 @@
-{  pkgs, config, lib, ... }:
+{  pkgs, lib, ... }:
 {
     imports = [ 
         # Include the results of the hardware scan.
@@ -23,6 +23,8 @@
             efi.canTouchEfiVariables = true;
             systemd-boot.enable = true;
         };
+
+        initrd.kernelModules = ["amdgpu"];
 
         kernelModules = [ "usbcore" "usbhid" ];
     };
@@ -61,7 +63,7 @@
         # You can disable this if you're only using the Wayland session.
         xserver = {
             enable = true;
-            videoDrivers = [ "nvidia" ];
+            videoDrivers = [ "amdgpu" ];
 
             # Configure keymap in X11
             xkb = {
@@ -95,23 +97,14 @@
 
     hardware = {
         # Enable dedicated Nvidia gpu support
-        graphics.enable = true;
-        
-        nvidia = {
-            modesetting.enable = true;
-            open = true;
-            nvidiaSettings = true;
-            #package = config.boot.kernelPackages.nvidiaPackages.production;
-            package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-                version = "580.95.05";
-                sha256_64bit = "sha256-hJ7w746EK5gGss3p8RwTA9VPGpp2lGfk5dlhsv4Rgqc=";
-                sha256_aarch64 = "sha256-RFwDGQOi9jVngVONCOB5m/IYKZIeGEle7h0+0yGnBEI="; 
-                openSha256 = "sha256-RFwDGQOi9jVngVONCOB5m/IYKZIeGEle7h0+0yGnBEI=" ; 
-                settingsSha256 = "sha256-F2wmUEaRrpR1Vz0TQSwVK4Fv13f3J9NJLtBe4UP2f14="; 
-                persistencedSha256 = lib.fakeSha256;
-            };
+        graphics = {
+            enable = true;
+            enable32Bit = true;
+            extraPackages = with pkgs; [
+                rocmPackages.clr.icd
+            ];
         };
-
+       
         openrazer.enable = true;
 
         keyboard.qmk.enable = true;
@@ -178,6 +171,7 @@
             wineWowPackages.waylandFull
             cameractrls-gtk4
             davinci-resolve-studio
+            rocmPackages.rocm-smi
         ];
         
         plasma6.excludePackages =  with pkgs.kdePackages; [
