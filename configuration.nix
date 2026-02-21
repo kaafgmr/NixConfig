@@ -80,6 +80,8 @@
 
     security = {
 
+        polkit.enable = true;
+
         sudo = {
             extraRules = [
                 {
@@ -141,8 +143,10 @@
         firefox.enable = true;
     };
 
-    fonts.packages = [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
-
+    fonts = {
+        packages = [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+        fontDir.enable = true;
+    };
     nixpkgs.config = {
         allowUnfree = true;
         nvidia.acceptLicense = true;
@@ -154,6 +158,7 @@
                 inherit (pkgs) fetchurl stdenv lib;
             })
             kicad
+            rpi-imager
             unrar
             arduino-ide
             tree
