@@ -24,8 +24,6 @@
             systemd-boot.enable = true;
         };
 
-        initrd.kernelModules = ["amdgpu"];
-
         kernelModules = [ "usbcore" "usbhid" ];
     };
 
@@ -63,7 +61,6 @@
         # You can disable this if you're only using the Wayland session.
         xserver = {
             enable = true;
-            videoDrivers = [ "amdgpu" ];
 
             # Configure keymap in X11
             xkb = {
@@ -98,15 +95,6 @@
 
 
     hardware = {
-        # Enable dedicated Nvidia gpu support
-        graphics = {
-            enable = true;
-            enable32Bit = true;
-            extraPackages = with pkgs; [
-                rocmPackages.clr.icd
-            ];
-        };
-       
         openrazer.enable = true;
 
         keyboard.qmk.enable = true;
@@ -149,7 +137,6 @@
     };
     nixpkgs.config = {
         allowUnfree = true;
-        nvidia.acceptLicense = true;
     };
 
     environment = {
