@@ -9,6 +9,7 @@
 
     services = {
         xserver = {
+            enable = true;
             videoDrivers = [
                 "amdgpu"
                 "nvidia"
@@ -17,6 +18,7 @@
     };
 
     nixpkgs.config = {
+        allowUnfree = true;
         nvidia.acceptLicense = true;
     };
 

@@ -11,9 +11,11 @@
         };
     };
 
+    nixpkgs.config.nvidia.acceptLicense = true;
+
     services = {
         xserver = {
-            videoDriver = [
+            videoDrivers = [
                 "amdgpu"
             ];
         };
