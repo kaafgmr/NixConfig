@@ -21,6 +21,7 @@
                 };
                 modules = [
                     ./configuration.nix
+                    ./machines/desktop/hardware-configuration.nix
                     ./gpu/Desktop.nix
                 ];
             };
@@ -32,6 +33,7 @@
                 };
                 modules = [
                     ./configuration.nix
+                    ./machines/laptop/hardware-configuration.nix
                     ./gpu/laptop.nix
                 ];
             };

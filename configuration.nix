@@ -1,9 +1,6 @@
 {  pkgs, lib, ... }:
 {
     imports = [ 
-        # Include the results of the hardware scan.
-        ./hardware-configuration.nix
-
         # Include services and their dependencies
         ./services/default.nix
 

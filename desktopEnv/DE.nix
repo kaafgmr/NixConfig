@@ -1,7 +1,10 @@
 {  pkgs, ... }:
 {
     programs = {
-        hyprland.enable = true;
+        hyprland = {
+            enable = true;
+            xwayland.enable = true;
+        };
         waybar.enable = true;
     };
     
@@ -13,11 +16,17 @@
     };
 
     #Make default apps work with hyprland
-    xdg.portal = {
-        enable = true;
-        extraPortals = [
-            pkgs.xdg-desktop-portal-hyprland
-        ];
+    xdg = {
+        mime = {
+            enable = true;
+        };
+
+        portal = {
+            enable = true;
+            extraPortals = with pkgs; [
+                xdg-desktop-portal-hyprland
+            ];
+        };
     };
 
     environment = {
@@ -29,6 +38,9 @@
             qt6.qttools
             hyprshot
             mimeo
+            brightnessctl
+            playerctl
+            networkmanager_dmenu
         ];
 
         sessionVariables = {
