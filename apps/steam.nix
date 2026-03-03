@@ -1,4 +1,4 @@
-{  pkgs, ... }:
+{  ... }:
 {
     programs = {
         appimage = {
@@ -11,12 +11,9 @@
             remotePlay.openFirewall = true;
             dedicatedServer.openFirewall = true;
             localNetworkGameTransfers.openFirewall = true;
-            package = pkgs.steam.override {
-                extraPkgs = pkgs: [
-                    pkgs.bumblebee
-                    pkgs.mesa-demos
-                ];
-            };
+            protontricks.enable = true;
         };
     };
+
+    hardware.steam-hardware.enable = true;
 }

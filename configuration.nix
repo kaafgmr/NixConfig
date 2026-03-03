@@ -104,7 +104,7 @@
         packages = with pkgs; [
             keepassxc
             polychromatic
-            youtube-music
+            pear-desktop
             discord
             ripgrep
             anki-bin
@@ -125,13 +125,14 @@
     };
 
     programs = {
+        ssh.startAgent = true;
         firefox.enable = true;
     };
 
     fonts = {
-        packages = [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
-        fontDir.enable = true;
+        packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
     };
+
     nixpkgs.config = {
         allowUnfree = true;
     };
@@ -143,6 +144,7 @@
             })
             kicad
             rpi-imager
+            gh
             unrar
             arduino-ide
             tree
@@ -157,10 +159,11 @@
             gtk3
             pkg-config
             winetricks
-            wineWowPackages.waylandFull
+            wineWow64Packages.waylandFull
             cameractrls-gtk4
             davinci-resolve-studio
             rocmPackages.rocm-smi
+            cups-pdf-to-pdf
         ];
         
         plasma6.excludePackages =  with pkgs.kdePackages; [

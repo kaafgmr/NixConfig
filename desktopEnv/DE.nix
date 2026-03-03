@@ -21,6 +21,8 @@
             enable = true;
         };
 
+        menus.enable = true;
+
         portal = {
             enable = true;
             extraPortals = with pkgs; [
